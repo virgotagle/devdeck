@@ -1,0 +1,60 @@
+name: CI
+
+# Trigger the workflow on push or pull request to the main branch
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+# prevent concurrent runs of the same workflow on the same branch
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # Job 1: Verification (Lint, Typecheck, Test)
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      # Even if tests are empty now, this ensures the command works
+      - name: Run Unit Tests
+        run: npm run test
+
+  # Job 2: Build Check (Ensure the app actually compiles)
+  build:
+    needs: verify
+    runs-on: ubuntu-latest # Using Ubuntu is faster/cheaper for simple build verification
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Build Application
+        run: npm run build
