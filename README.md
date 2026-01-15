@@ -1,6 +1,6 @@
 # DevDeck
 
-[![CI](https://github.com/floydpagar/devdeck/actions/workflows/ci.yml/badge.svg)](https://github.com/floydpagar/devdeck/actions)
+[![CI](https://github.com/virgotagle/devdeck/actions/workflows/ci.yml/badge.svg)](https://github.com/virgotagle/devdeck/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 > A desktop application that manages and tracks local development projects by scanning directories for metadata and storing them in a PostgreSQL database, designed for developers managing multiple concurrent projects.
@@ -110,7 +110,7 @@ devdeck/
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/floydpagar/devdeck.git
+   git clone https://github.com/virgotagle/devdeck.git
    cd devdeck
    ```
 2. Install dependencies:
