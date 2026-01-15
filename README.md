@@ -9,6 +9,18 @@
 
 ---
 
+## Preview
+
+| Main Dashboard                          | Project Details                                   |
+| :-------------------------------------- | :------------------------------------------------ |
+| ![Dashboard](screenshots/dashboard.png) | ![Project Drawer](screenshots/project-drawer.png) |
+
+| Database Config                         | Add Project                                 |
+| :-------------------------------------- | :------------------------------------------ |
+| ![DB Config](screenshots/db-config.png) | ![Add Project](screenshots/add-project.png) |
+
+---
+
 ## Overview
 
 **DevDeck** solves the challenge of organizing and quickly accessing multiple local development projects. Instead of traversing the file system or relying on shell history, DevDeck provides a centralized dashboard to view project summaries, READMEs, and Git configurations.
